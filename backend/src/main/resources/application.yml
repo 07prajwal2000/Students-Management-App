@@ -1,0 +1,18 @@
+#Database
+spring:
+  application:
+    name: Spring Boot Assignment
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/personal
+    username: postgres
+    password:
+  #
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      show-sql=true:

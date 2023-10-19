@@ -1,8 +1,11 @@
-# React + Vite
+# precize-assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Open Front End Folder
+2. Install dependencies using `npm i`
+3. Open and Run the Server using IntelliJ IDE (SpringBoot 3 + JDK 17)
+4. Run the frontend using command `npm run dev`
 
-Currently, two official plugins are available:
+### Sample Video
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://github.com/bharathkalyans/precize-assignment/assets/49526472/610e9e8a-3abd-4569-9b31-82e7ddb09043
+
