@@ -1,19 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import useGlobalStore from "../store/global";
 import { Link } from "react-router-dom";
+import { DeleteStudent, GetStudents } from "../api/fetcher";
 
 const ViewAll = () => {
-	const { setActivePage, students } = useGlobalStore();
+	const { setActivePage, students, setStudents } = useGlobalStore();
+	const [randNumber, setRandNumber] = useState(0);
 
 	useEffect(() => {
 		setActivePage("viewall");
-	}, []);
+		getStudents();
+	}, [randNumber]);
 
-  function onDelete(id) {
-    if (!confirm("Are you sure want to delete the student with id: " + id)) return;
+	async function getStudents() {
+		try {
+			const response = await GetStudents();
+			setStudents(response);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
+  function onDelete(name) {
+    if (!confirm("Are you sure want to delete the student with id: " + name)) return;
     // actual delete logic
+		DeleteStudent(name);
+		setRandNumber(-100);
   }
 
 	return (
@@ -46,7 +59,7 @@ const ViewAll = () => {
 									<img width="22px" src="/edit.png" alt="" />
 								</Link>
 							</td>
-							<td onClick={() => onDelete(s.id)} className="btn btn-outline-danger">
+							<td onClick={() => onDelete(s.name)} className="btn btn-outline-danger">
 								<img width="22px" src="/delete.png" alt="" />
 							</td>
 						</tr>
