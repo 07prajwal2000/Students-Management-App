@@ -1,4 +1,4 @@
-# Students CRUD app
+# Students Management Fullstack application
 
 1. Open Front End Folder
 2. Install dependencies using `npm i`
