@@ -6,12 +6,11 @@ import { DeleteStudent, GetStudents } from "../api/fetcher";
 
 const ViewAll = () => {
 	const { setActivePage, students, setStudents } = useGlobalStore();
-	const [randNumber, setRandNumber] = useState(0);
 
 	useEffect(() => {
 		setActivePage("viewall");
 		getStudents();
-	}, [randNumber]);
+	}, []);
 
 	async function getStudents() {
 		try {
@@ -22,11 +21,11 @@ const ViewAll = () => {
 		}
 	}
 
-  function onDelete(name) {
-    if (!confirm("Are you sure want to delete the student with id: " + name)) return;
+  async function onDelete(name) {
+    if (!confirm("Are you sure want to delete the student with name: " + name)) return;
     // actual delete logic
-		DeleteStudent(name);
-		setRandNumber(-100);
+		await DeleteStudent(name);
+		window.location.reload();
   }
 
 	return (
